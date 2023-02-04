@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from backend.data_structs.DataType import DataType
+from projects.data.data_structs.DataType import DataType
 
 
 class BaseData(ABC):

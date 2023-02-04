@@ -1,9 +1,10 @@
 from dataclasses import dataclass, field
 import datetime
 
-from backend.data_structs.DownstreamTask import DownstreamTask
-from backend.data_structs.TrainingConfig import TrainingConfig
-from backend.data_structs.SubscriptionLevel import SubscriptionLevel
+from projects.data.data_structs.DownstreamTask import DownstreamTask
+from projects.data.data_structs.SubscriptionLevel import SubscriptionLevel
+from projects.data.data_structs.TrainingConfig import TrainingConfig
+
 
 @dataclass
 class Model:

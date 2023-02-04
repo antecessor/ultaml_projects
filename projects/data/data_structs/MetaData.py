@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 
-from backend.data_structs.DataType import DataType
+from projects.data.data_structs.DataType import DataType
 
 
 @dataclass

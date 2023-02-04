@@ -2,9 +2,9 @@ from dataclasses import dataclass, field
 import datetime
 from typing import List
 
-from backend.data_structs.DownstreamTask import DownstreamTask
-from backend.data_structs.MetaData import MetaData
-from backend.data_structs.SubscriptionLevel import SubscriptionLevel
+from projects.data.data_structs.DownstreamTask import DownstreamTask
+from projects.data.data_structs.MetaData import MetaData
+from projects.data.data_structs.SubscriptionLevel import SubscriptionLevel
 
 
 @dataclass

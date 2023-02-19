@@ -1,3 +1,4 @@
+import json
 from dataclasses import dataclass, field
 import datetime
 
@@ -46,13 +47,17 @@ class Model:
             "code_path": self.code_path,
             "downstream_task": self.downstream_task.value,
             "subscription_level": self.subscription_level.value,
-            "training_config": self.training_config,
             "results": self.results,
             "deleted": self.deleted,
             "uploading_progress": self.uploading_progress,
             "created_at": self.created_at.strftime("%Y-%m-%d %H:%M:%S"),
             "updated_at": self.updated_at.strftime("%Y-%m-%d %H:%M:%S")
         }
+        try:
+            model["training_config"]= self.training_config.to_json()
+        except:
+            model["training_config"] = self.training_config
+
         if self.id:
             model["_id"] = str(self.id) if id_as_str else self.id
         return model
@@ -86,9 +91,15 @@ class Model:
             model.subscription_level = SubscriptionLevel(
                 model_dict["subscription_level"])
         if "training_config" in model_dict:
-            model.training_config = model_dict["training_config"]
+            try:
+                model.training_config = json.loads(model_dict["training_config"])
+            except:
+                model.training_config = model_dict["training_config"]
         if "results" in model_dict:
-            model.results = model_dict["results"]
+            try:
+                model.results = json.loads(model_dict["results"])
+            except:
+                model.results = model_dict["results"]
         if "deleted" in model_dict:
             model.deleted = model_dict["deleted"]
         if "uploading_progress" in model_dict:

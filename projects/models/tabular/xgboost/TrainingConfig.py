@@ -1,4 +1,5 @@
 import dataclasses
+import json
 from dataclasses import dataclass, field
 
 
@@ -19,3 +20,6 @@ class TrainingConfig:
                 args.append(f"--{item.name}={value}")
 
         return " ".join(args)
+
+    def to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
